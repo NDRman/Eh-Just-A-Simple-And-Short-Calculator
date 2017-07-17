@@ -10,24 +10,20 @@ class App(QWidget):
         calculation = ""
         self.layout = QGridLayout(self)
         t = 0
-        nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-"]
+        nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "/", "*", "(", ")"]
         for row in range(4):
-            for col in range(3):
+            for col in range(4):
                 button = QPushButton(nums[t])
                 t += 1
                 button.clicked.connect(self.buttonClicked)
                 self.layout.addWidget(button, row, col)
         self.setWindowTitle("Cowlculator")
-        self.setGeometry(100, 100, 100, 100)
-        self.setLayout(self.layout)
         self.show()
 
     def buttonClicked(self):
-        clear = lambda: os.system('cls')
-        clear()
-        button = self.sender()
+        os.system('cls')
         global calculation
-        calculation += button.text()
+        calculation += self.sender().text()
         try:
             print(calculation, "\n\n", "=" , eval(calculation))
         except:
