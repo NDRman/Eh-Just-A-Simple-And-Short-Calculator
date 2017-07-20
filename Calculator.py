@@ -1,5 +1,5 @@
 import os
-import sys
+import sys  
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QGridLayout, QLabel
 
 class App(QWidget):
@@ -20,21 +20,16 @@ class App(QWidget):
                 t += 1
                 button.clicked.connect(lambda: self.buttonClicked(L1, L2))
                 self.layout.addWidget(button, row, col)
-
-
         self.layout.addWidget(L1)
         self.layout.addWidget(L2)
         self.setWindowTitle("Cowlculator")
-
         self.show()
 
     def buttonClicked(self, L1, L2):
         os.system('cls')
         global calculation
-        if self.sender().text() != "<-":
-            calculation += self.sender().text()
-        else:
-            calculation = calculation[:-1]
+        if self.sender().text() == "<-": calculation = calculation[:-1]
+        else: calculation += self.sender().text()
         try:
             L1.setText(calculation)
             L2.setText(str(eval(calculation)))
