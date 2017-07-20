@@ -1,5 +1,5 @@
 import os
-import sys  
+import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QGridLayout, QLabel
 
 class App(QWidget):
@@ -12,7 +12,7 @@ class App(QWidget):
         L2 = QLabel("")
         self.layout = QGridLayout(self)
         t = 0
-        nums = ["0", "1", "2", "+", "3", "4", "5", "-", "6", "7", "8", "*", "9", "(", ")", "/", ".", "<-", "",
+        nums = ["1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", "0", "(", ")", "/", ".", "<-", "",
          ""]
         for row in range(2, 7):
             for col in range(4):
